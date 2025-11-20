@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北大深研院机器狗送快递（杨子达 黄庭 杨懿德） - 智能校园物流创新项目</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a90e2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .section {
+            padding: 4rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .story-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .story-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffd93d;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #4a90e2, #667eea);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #4a90e2;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .dance-section {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .dance-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .dance-moves {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dance-move {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .download-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .download-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #4a90e2;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .story-overview {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                margin-left: 40px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-number {
+                left: 20px;
+                transform: translateY(-50%);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            background: white;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    北大智能快递（杨子达 黄庭 杨懿德）
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#story">故事概述</a></li>
+                        <li><a href="#script">拍摄脚本</a></li>
+                        <li><a href="#dance">互动结尾</a></li>
+                        <li><a href="#download">资源下载</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>上课不出门，快递自己走到玻璃门口了</h1>
+            <p>北大深研院机器狗送快递 - 智能校园物流创新项目</p>
+            <a href="#story" class="cta-button">观看完整故事</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="story" class="section">
+            <h2 class="section-title">故事概述</h2>
+            <div class="story-overview">
+                <div class="story-text">
+                    <h3>偶遇篇</h3>
+                    <p>Kim在赶课路上偶遇会说话的机器狗，机器狗主动询问是否需要帮助。当Kim提到快递问题时，机器狗立即表示可以提供智能快递服务，从快递点取件并送到教室门口。</p>
+                    
+                    <h3>任务篇</h3>
+                    <p>机器狗接受任务后，开始智能导航：稳稳通过坡道、礼貌避让行人、在教学楼内低速前行，最终精准停在教室玻璃门外30cm处的指定位置。</p>
+                    
+                    <h3>团圆篇</h3>
+                    <p>Kim在教室收到取件通知，推开门惊喜地发现机器狗已经等候多时。她轻松取到快递后，与机器狗进行温馨互动，包括握手和一起跳舞庆祝。</p>
+                </div>
+                <div class="story-image">
+                    <img src="kim_meets_robot_dog.png" alt="Kim与机器狗初次相遇">
+                </div>
+            </div>
+
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="dancing_scene.png" alt="跳舞互动场景">
+                    <div class="gallery-caption">温馨的跳舞互动结尾</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="storyboard_overview.png" alt="完整故事板">
+                    <div class="gallery-caption">完整故事板概览</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="campus_delivery_poster.png" alt="项目海报">
+                    <div class="gallery-caption">智能校园快递服务海报</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="script" class="section">
+            <h2 class="section-title">拍摄脚本</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>相遇篇 (0-45秒)</h3>
+                        <p><strong>场景：</strong>校园林荫道</p>
+                        <p><strong>内容：</strong>Kim匆忙赶路，收到快递通知后显得焦虑。转角遇到会说话的机器狗，主动询问是否需要帮助。机器狗接受取快递的任务委托。</p>
+                        <p><strong>关键对话：</strong><br>
+                        机器狗："你好！我是校园智能快递助手，看起来你好像需要帮助？"<br>
+                        Kim："你...你真的可以帮我吗？"<br>
+                        机器狗："当然！我可以帮你取快递，然后送到你的教室门口。"</p>
+                    </div>
+                    <div class="timeline-number">1</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>任务篇 (45-75秒)</h3>
+                        <p><strong>场景：</strong>校园快递点 → 教学楼走廊</p>
+                        <p><strong>内容：</strong>机器狗从快递点取件，智能导航穿越校园。展现其通过坡道、避让行人、楼内低速前行等智能功能，最终精准停在教室门口。</p>
+                        <p><strong>技术亮点：</strong><br>
+                        • 自动路径规划<br>
+                        • 障碍物识别与避让<br>
+                        • 精准定位停车<br>
+                        • 安全速度控制</p>
+                    </div>
+                    <div class="timeline-number">2</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>团圆篇 (75-110秒)</h3>
+                        <p><strong>场景：</strong>教室玻璃门口</p>
+                        <p><strong>内容：</strong>Kim收到取件通知，推开门惊喜地发现机器狗已等候多时。轻松取到快递后，与机器狗进行温馨互动，包括握手和一起跳舞庆祝。</p>
+                        <p><strong>情感升华：</strong><br>
+                        • 科技的温度与人文关怀<br>
+                        • 人机协作的美好愿景<br>
+                        • 智慧校园生活的体现</p>
+                    </div>
+                    <div class="timeline-number">3</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dance" class="section dance-section">
+            <div class="dance-content">
+                <h2 class="section-title">机器狗跳舞互动结尾</h2>
+                <p>当Kim成功取到快递后，机器狗展现出活泼可爱的一面，与她进行温馨的舞蹈互动。这不仅是对任务完成的庆祝，更是科技与人文完美融合的体现。</p>
+                
+                <div class="dance-moves">
+                    <div class="dance-move">
+                        <h3><i class="fas fa-hand-paper"></i> 摇尾巴打招呼</h3>
+                        <p>机器狗友好地摇动尾巴，LED眼睛闪烁着喜悦的光芒</p>
+                    </div>
+                    <div class="dance-move">
+                        <h3><i class="fas fa-handshake"></i> 握手互动</h3>
+                        <p>Kim与机器狗进行友好的握手，建立情感连接</p>
+                    </div>
+                    <div class="dance-move">
+                        <h3><i class="fas fa-sync-alt"></i> 原地旋转</h3>
+                        <p>机器狗展示流畅的旋转动作，展现其平衡能力</p>
+                    </div>
+                    <div class="dance-move">
+                        <h3><i class="fas fa-music"></i> 同步舞蹈</h3>
+                        <p>Kim和机器狗一起随着音乐节奏舞动，庆祝成功</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="section download-section">
+            <h2 class="section-title">项目资源下载</h2>
+            <p>获取完整的项目资料，包括详细的拍摄脚本、故事板、技术规格和后期制作指南。</p>
+            
+            <div class="download-grid">
+                <div class="download-item">
+                    <h3><i class="fas fa-file-alt"></i> 完整拍摄脚本</h3>
+                    <p>详细的分镜脚本，包含每个镜头的机位、动作、台词和技术要求</p>
+                    <a href="shooting_script.md" class="download-btn" download>下载脚本</a>
+                </div>
+                <div class="download-item">
+                    <h3><i class="fas fa-book"></i> 故事板设计</h3>
+                    <p>完整的故事板概览，展现整个视频的视觉叙事流程</p>
+                    <a href="storyboard_overview.png" class="download-btn" download>下载故事板</a>
+                </div>
+                <div class="download-item">
+                    <h3><i class="fas fa-music"></i> 舞蹈动作设计</h3>
+                    <p>机器狗与Kim的舞蹈互动详细设计方案和动作分解</p>
+                    <a href="dance_ending.md" class="download-btn" download>下载舞蹈设计</a>
+                </div>
+                <div class="download-item">
+                    <h3><i class="fas fa-project-diagram"></i> 项目概述</h3>
+                    <p>完整的项目定位、目标受众和传播策略分析</p>
+                    <a href="project_outline.md" class="download-btn" download>下载项目概述</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">核心特色</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="feature-title">智能导航</h3>
+                    <p>先进的SLAM技术，实现精准路径规划和障碍物避让</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">安全合规</h3>
+                    <p>不入室、不接触人、低速运行，确保校园安全</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">高效便捷</h3>
+                    <p>15分钟内完成配送，让学生专注学习生活</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">情感互动</h3>
+                    <p>人性化的交互设计，让科技充满温度</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2024 北大深研院智能快递项目. 科技让校园生活更美好.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-bilibili"></i></a>
+                    <a href="#"><i class="fab fa-douyin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有section元素
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // 添加一些互动效果
+        document.querySelectorAll('.feature-card, .download-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

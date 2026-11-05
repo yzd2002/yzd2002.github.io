@@ -24,6 +24,8 @@ for (const button of document.querySelectorAll('[data-change]')) {
     study.dataset.state = alternate ? 'alternate' : 'initial';
     study.querySelector('[data-changing] strong').textContent = alternate ? study.dataset.alternate : study.dataset.initial;
     study.querySelector('.readout b').textContent = alternate ? study.dataset.claimB : study.dataset.claimA;
+    study.querySelector('.state-label').textContent = alternate ? study.dataset.statusB : study.dataset.statusA;
+    study.querySelector('.node').textContent = alternate ? study.dataset.symbolB : study.dataset.symbolA;
     button.textContent = alternate ? study.dataset.restore : study.dataset.toggle;
   });
 }

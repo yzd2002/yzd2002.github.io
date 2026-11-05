@@ -19,18 +19,24 @@
 .input-doc strong { display: block; font: 400 clamp(22px,1.8vw,29px)/1.2 var(--serif); margin-top: 4px; }
 .wire { border-top: 1px dashed #a5bdad; }
 .node { border: 1px solid #83aa94; height: 40px; display: grid; place-items: center; border-radius: 50%; background: #204b42; }
-.node i { height: 12px; width: 12px; transform: rotate(45deg); border: 1px solid #f2b282; box-shadow: 0 0 0 4px #dd9e6f1c; }
+.node { font: 23px/1 var(--mono); color: #f5c19b; }
+.study[data-state="alternate"] .node { background: #e8ae83; border-color: #e8ae83; color: #173c34; }
 .study[data-state="alternate"] [data-changing] { border-color: #f6b78b; background:#4c4737; }
 .study[data-state="alternate"] .right { border-color: #f6b78b; }
 .readout { display: grid; gap: 3px; border-left: 2px solid #d99d78; padding-left: 10px; }
 .readout span { font: 11px var(--mono); color: #d2dfcf; }
 .readout b { min-height: 22px; font-size: 15px; font-weight: 550; color: #fff8e9; }
+.readout .state-label { justify-self: start; padding: 3px 7px; margin-bottom: 5px; border-radius: 3px; background: #cce0cb; color: #173c34; font-size: 12px; font-weight: 650; }
+.study[data-state="alternate"] .readout { border-color: #f5c19b; }
+.study[data-state="alternate"] .state-label { background: #f5c19b; }
 .study-actions, .film-caption { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 15px; margin-top: 16px; }
 .study-actions a,.film-caption a { font-size: 12px; color: #cfe1d7; text-underline-offset: 4px; text-decoration: underline; }
 .study-actions a:hover,.film-caption a:hover { color: #fff2d9; }
-.study-actions button { display: none; border: 1px solid #edb792; border-radius: 4px; padding: 8px 11px; color: #ffdfc5; background: #183f38; font-size: 12px; }
+.study-actions button { display: none; border: 1px solid #edb792; border-radius: 4px; padding: 8px 11px; color: #183f38; background: #f5c19b; font-size: 12px; font-weight: 650; }
 .interactive .study-actions button { display: inline-flex; }
-.study-actions button:hover { background: #385648; }
+.study-actions button:hover { background: #ffdbc0; }
+.study-actions button:active { transform: translateY(1px); }
+.presentation { display: inline-block; vertical-align: middle; margin: 3px 0 3px 7px; border: 1px solid #a56c4b; border-radius: 3px; padding: 2px 6px; color: #874026; background: #f9e9dd; font: 600 11px/1.4 var(--sans); letter-spacing: 0; text-transform: none; }
 .film video { width: 100%; max-height: 245px; display: block; border-radius: 4px; background: #0f211d; margin-top: 13px; }
 .film-caption { margin-top: 9px; }
 .feature .roleline { display: block; color: var(--muted); font-size: 12px; margin: 8px 0; }
